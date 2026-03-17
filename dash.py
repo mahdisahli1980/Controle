@@ -225,13 +225,90 @@ if st.session_state.page == "menu":
 elif st.session_state.page == "overview":
     st.title("0. Vue générale du dataset")
 
+    # =========================
+    # OBJECTIF
+    # =========================
+    st.markdown("""
+**Objectif :**  
+Comprendre la structure du dataset Telco Customer Churn avant toute analyse.
+
+Ce dataset contient des informations sur des clients d’un opérateur télécom et permet de prédire le churn (désabonnement).
+""")
+
+    # =========================
+    # DESCRIPTION DU DATASET
+    # =========================
+    st.markdown("""
+### Description du dataset
+
+- Chaque ligne représente un client  
+- La variable cible est **Churn** (Yes / No)  
+- Les variables incluent :
+  - informations démographiques (gender, SeniorCitizen)
+  - durée d’abonnement (tenure)
+  - facturation (MonthlyCharges, TotalCharges)
+  - services utilisés  
+
+👉 Objectif final : prédire si un client va quitter le service.
+""")
+
+    # =========================
+    # INDICATEURS GLOBAUX
+    # =========================
+    st.subheader("Indicateurs globaux")
+
     col1, col2, col3 = st.columns(3)
     col1.metric("Nombre de lignes", df.shape[0])
     col2.metric("Nombre de colonnes", df.shape[1])
     col3.metric("Doublons", int(df.duplicated().sum()))
 
-    st.write("Aperçu des données")
-    st.dataframe(df.head())
+    # =========================
+    # TYPES DE VARIABLES
+    # =========================
+    st.subheader("Types de variables")
+
+    types_df = pd.DataFrame({
+        "colonne": df.columns,
+        "type": df.dtypes.astype(str)
+    })
+
+    st.dataframe(types_df, use_container_width=True)
+
+    # =========================
+    # APERÇU
+    # =========================
+    st.subheader("Aperçu des données")
+
+    st.dataframe(df.head(), use_container_width=True)
+
+    # =========================
+    # DISTRIBUTION CHURN
+    # =========================
+    if "Churn" in df.columns:
+        st.subheader("Distribution de la variable cible (Churn)")
+
+        churn_counts = df["Churn"].value_counts()
+
+        fig, ax = plt.subplots(figsize=(4, 2.8))
+        ax.bar(churn_counts.index.astype(str), churn_counts.values)
+        ax.set_title("Répartition du Churn", fontsize=10)
+        ax.set_ylabel("Nombre de clients", fontsize=9)
+        ax.tick_params(axis="both", labelsize=8)
+
+        st.pyplot(fig, clear_figure=True)
+
+    # =========================
+    # INTERPRÉTATION
+    # =========================
+    st.markdown("""
+### Interprétation
+
+- Le dataset contient des données clients complètes pour l’analyse du churn  
+- La variable cible est déséquilibrée (plus de "No" que de "Yes")  
+- Les variables numériques comme **tenure** et **MonthlyCharges** seront importantes pour la modélisation  
+
+👉 Cette étape permet de valider que les données sont exploitables avant le contrôle qualité.
+""")
 
     back_to_menu()
 
