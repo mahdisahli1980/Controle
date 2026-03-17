@@ -1,0 +1,46 @@
+dataset: telco_customer_churn
+
+columns:
+
+  tenure:
+    type: integer
+    min: 0
+    max: 72
+
+  MonthlyCharges:
+    type: float
+    min: 0
+
+  TotalCharges:
+    type: float
+    min: 0
+
+  gender:
+    type: categorical
+    allowed_values:
+      - Male
+      - Female
+
+  SeniorCitizen:
+    type: integer
+    allowed_values:
+      - 0
+      - 1
+
+  Partner:
+    type: categorical
+    allowed_values:
+      - Yes
+      - No
+
+  Dependents:
+    type: categorical
+    allowed_values:
+      - Yes
+      - No
+
+target:
+  column: Churn
+  allowed_values:
+    - Yes
+    - No
