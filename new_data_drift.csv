@@ -7031,3 +7031,4 @@ customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleL
 4801-JZAZL,Female,0,Yes,Yes,10,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,Yes,Electronic check,34.04,381.095,No
 8361-LTMKD,Male,1,Yes,No,0,Yes,Yes,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,85.56,337.26000000000005,Yes
 3186-AJIEK,Male,0,No,No,64,Yes,No,Fiber optic,Yes,No,Yes,Yes,Yes,Yes,Two year,Yes,Bank transfer (automatic),121.4975,7528.950000000001,No
+
