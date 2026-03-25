@@ -298,7 +298,7 @@ Ce dataset contient des informations sur des clients d’un opérateur télécom
         st.pyplot(fig, clear_figure=True)
 
     # =========================
-    # INTERPRÉTATION
+    # INTERPRÉTATION:
     # =========================
     st.markdown("""
 ### Interprétation
@@ -314,7 +314,7 @@ Ce dataset contient des informations sur des clients d’un opérateur télécom
 
 
 # =========================================================
-# PHASE 1
+# PHASE 1: CONTRÔLE QUALITÉ DES DONNÉES
 # =========================================================
 elif st.session_state.page == "phase1":
     st.title("1. Contrôle Qualité des Données")
@@ -356,7 +356,7 @@ Cette section présente les valeurs manquantes, les distributions et les outlier
 
 
 # =========================================================
-# PHASE 2
+# PHASE 2: VALIDATION DE L’INGÉNIERIE DES CARACTÉRISTIQUES
 # =========================================================
 elif st.session_state.page == "phase2":
     st.title("2. Validation de l’Ingénierie des Caractéristiques")
@@ -393,7 +393,7 @@ ce qui garantit une préparation cohérente des données avant la modélisation.
 
 
 # =========================================================
-# PHASE 3
+# PHASE 3: VALIDATION DU MODÈLE
 # =========================================================
 elif st.session_state.page == "phase3":
     st.title("3. Validation du Modèle")
@@ -453,7 +453,7 @@ et une analyse d’équité a été réalisée pour vérifier l’absence de bia
 
 
 # =========================================================
-# PHASE 4
+# PHASE 4: MONITORING ET DRIFT
 # =========================================================
 elif st.session_state.page == "phase4":
     st.title("4. Monitoring et Drift")
@@ -513,7 +513,7 @@ si la p-value est inférieure à 0.05, on considère qu’un drift significatif 
 
 
 # =========================================================
-# CONCLUSION
+# CONCLUSION:
 # =========================================================
 elif st.session_state.page == "conclusion":
     st.title("5. Conclusion")
